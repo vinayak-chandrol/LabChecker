@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uploaded reports</title>
+</head>
+<body>
+        <h2>Uploaded reports</h2>
+
+        <table border="1" cellpadding="8">
+            <tr>
+                <th>Student_Name</th>
+                <th>Lab_Name</th>
+                <th>File_Name</th>
+                <th>Uploaded_on</th>
+            </tr>
+            {% for report in reports%}
+            <tr>
+                <td>{{report.student_name}}</td>
+                <td>{{report.lab_name}}</td>
+                <td>
+                    <a href="{{reports.lab_file.url}}" target="_blank">View</a>
+                </td>
+                <td>{{report.uploaded_at}}</td>
+            </tr>
+
+            {% empty %}
+            <tr>
+                <td>"no reports uploaded yet"</td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
