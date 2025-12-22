@@ -20,9 +20,12 @@
                 <td>{{report.student_name}}</td>
                 <td>{{report.lab_name}}</td>
                 <td>
-                    <a href="{{reports.lab_file.url}}" target="_blank">View</a>
+                    <a href="{{report.lab_file.url}}" target="_blank">View</a>
                 </td>
                 <td>{{report.uploaded_at}}</td>
+                <td><a href="{% url 'delete' report.id%}"
+                    onclick="return confirm('delete thsi report ?');">
+                delete</a></td>
             </tr>
 
             {% empty %}
