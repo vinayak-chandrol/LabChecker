@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404 , redirect
 from django.http import HttpResponse
 from . models import StudentData
 
@@ -11,9 +11,8 @@ def upload_report(request):
         lab_name=request.POST.get('lab_name')
         lab_file=request.FILES.get('lab_file')
 
-
         StudentData.objects.create(
-            student_name=student_name,
+            student_name=student_name,#table attribute name = form input field variable
             lab_name=lab_name,
             lab_file=lab_file
             
@@ -30,3 +29,8 @@ def report_list(request):
     return render(request,'reports/report_list.html',
          {"reports":reports
           })
+
+def delete(request,id):
+    report = get_object_or_404(StudentData,id=id)
+    report.delete()
+    return redirect('report_list')
