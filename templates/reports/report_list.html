@@ -10,6 +10,7 @@
 
         <table border="1" cellpadding="8">
             <tr>
+                <th>user</th>
                 <th>Student_Name</th>
                 <th>Lab_Name</th>
                 <th>File_Name</th>
@@ -17,15 +18,21 @@
             </tr>
             {% for report in reports%}
             <tr>
+                <td>{{report.user.username}}</td>
                 <td>{{report.student_name}}</td>
                 <td>{{report.lab_name}}</td>
                 <td>
                     <a href="{{report.lab_file.url}}" target="_blank">View</a>
                 </td>
                 <td>{{report.uploaded_at}}</td>
-                <td><a href="{% url 'delete' report.id%}"
-                    onclick="return confirm('delete thsi report ?');">
-                delete</a></td>
+                <td>{%if report.user==request.user%}
+                    <a href="{% url 'delete' report.id%}"
+                    onclick="return confirm('delete this report ?');">
+                delete</a>
+              {% else %}
+        -
+              {% endif %}
+            </td>
             </tr>
 
             {% empty %}
