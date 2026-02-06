@@ -1,9 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>uploaded reports</title>
+    <link rel="stylesheet" href="{% static 'reports/reportlist.css'%}">
+    
 </head>
 <body>
         <h2>Uploaded reports</h2>
@@ -16,7 +19,7 @@
                 <th>File_Name</th>
                 <th>Uploaded_on</th>
             </tr>
-            {% for report in reports%}
+            {% for report in reports %}
             <tr>
                 <td>{{report.user.username}}</td>
                 <td>{{report.student_name}}</td>
@@ -25,7 +28,7 @@
                     <a href="{{report.lab_file.url}}" target="_blank">View</a>
                 </td>
                 <td>{{report.uploaded_at}}</td>
-                <td>{%if report.user==request.user%}
+                <td>{%if report.user == request.user%}
                     <a href="{% url 'delete' report.id%}"
                     onclick="return confirm('delete this report ?');">
                 delete</a>

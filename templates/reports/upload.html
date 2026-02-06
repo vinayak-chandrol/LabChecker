@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <h1>upload lab report</h1>
+   
+    <link rel="stylesheet" href="{% static 'reports/style.css' %}">
 </head>
 <body>
-    <h3>upload reports</h3>
+   
     <form action="" method="POST" enctype="multipart/form-data">
+         <h3>upload reports</h3>
         {% csrf_token %}
         <label for="">Student_name</label>
         <input type="text" name="student_name" id=""><br><br>

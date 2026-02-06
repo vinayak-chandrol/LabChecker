@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    padding: 40px;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Table container */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Header */
+th {
+    background-color: #4e73df;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Rows */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Zebra effect */
+tr:nth-child(even) {
+    background-color: #f9fafc;
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: #eef2ff;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* View link */
+a[target="_blank"] {
+    color: #1cc88a;
+}
+
+/* Delete link */
+a[href*="delete"] {
+    color: #e74a3b;
+}
+
+/* Empty row */
+td[colspan] {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}

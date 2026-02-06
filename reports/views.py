@@ -12,6 +12,7 @@ def upload_report(request):
         lab_file=request.FILES.get('lab_file')
 
         StudentData.objects.create(
+            user=request.user,
             student_name=student_name,#table attribute name = form input field variable
             lab_name=lab_name,
             lab_file=lab_file
